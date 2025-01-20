@@ -1,0 +1,35 @@
+
+
+
+<div class="button">
+    <div class="arrow">→</div>
+</div>
+
+<style>
+
+.button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 50px;
+            border: 2px solid #FFC107; /* Borde dorado */
+            border-radius: 25px; /* Esquinas redondeadas */
+            background-color: transparent; /* Fondo transparente */
+            position: relative;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid #FFC107; /* Borde interior dorado */
+            border-radius: 25px;
+            transform: scale(0.85); /* Reducir tamaño del borde interior */
+        }
+
+        .button .arrow {
+            color: #FFC107; /* Color del icono */
+            font-size: 24px;
+        }
+</style>

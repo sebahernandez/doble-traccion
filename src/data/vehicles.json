@@ -1,0 +1,184 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "name": "RAM 2500 LARAMIE",
+      "brand": "RAM",
+      "price": 56000000,
+      "year": 2021,
+      "image": "https://placehold.co/400x300?text=4x4+1",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 2,
+      "name": "FORD F150 XLT DCAB",
+      "brand": "FORD",
+      "price": 42000000,
+      "year": 2020,
+      "image": "https://placehold.co/400x300?text=4x4+2",
+      "features": ["Automático", "4x4", "Bencina"]
+    },
+    {
+      "id": 3,
+      "name": "TOYOTA HILUX SRV",
+      "brand": "TOYOTA",
+      "price": 34000000,
+      "year": 2019,
+      "image": "https://placehold.co/400x300?text=4x4+3",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 4,
+      "name": "JEEP WRANGLER RUBICON",
+      "brand": "JEEP",
+      "price": 73000000,
+      "year": 2023,
+      "image": "https://placehold.co/400x300?text=4x4+4",
+      "features": ["Automático", "4x4", "Bencina"]
+    },
+    {
+      "id": 5,
+      "name": "CHEVROLET SILVERADO",
+      "brand": "CHEVROLET",
+      "price": 60000000,
+      "year": 2022,
+      "image": "https://placehold.co/400x300?text=4x4+5",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 6,
+      "name": "NISSAN TITAN",
+      "brand": "NISSAN",
+      "price": 45000000,
+      "year": 2021,
+      "image": "https://placehold.co/400x300?text=4x4+6",
+      "features": ["Automático", "4x4", "Bencina"]
+    },
+    {
+      "id": 7,
+      "name": "GMC SIERRA",
+      "brand": "GMC",
+      "price": 62000000,
+      "year": 2023,
+      "image": "https://placehold.co/400x300?text=4x4+7",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 8,
+      "name": "DODGE RAM 1500",
+      "brand": "DODGE",
+      "price": 57000000,
+      "year": 2020,
+      "image": "https://placehold.co/400x300?text=4x4+8",
+      "features": ["Automático", "4x4", "Bencina"]
+    },
+    {
+      "id": 9,
+      "name": "RAM 3500 LARAMIE",
+      "brand": "RAM",
+      "price": 75000000,
+      "year": 2023,
+      "image": "https://placehold.co/400x300?text=4x4+9",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 10,
+      "name": "FORD RANGER",
+      "brand": "FORD",
+      "price": 39000000,
+      "year": 2020,
+      "image": "https://placehold.co/400x300?text=4x4+10",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 11,
+      "name": "TOYOTA TACOMA",
+      "brand": "TOYOTA",
+      "price": 48000000,
+      "year": 2022,
+      "image": "https://placehold.co/400x300?text=4x4+11",
+      "features": ["Automático", "4x4", "Bencina"]
+    },
+    {
+      "id": 12,
+      "name": "JEEP GLADIATOR",
+      "brand": "JEEP",
+      "price": 77000000,
+      "year": 2023,
+      "image": "https://placehold.co/400x300?text=4x4+12",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 13,
+      "name": "CHEVROLET COLORADO",
+      "brand": "CHEVROLET",
+      "price": 51000000,
+      "year": 2021,
+      "image": "https://placehold.co/400x300?text=4x4+13",
+      "features": ["Automático", "4x4", "Bencina"]
+    },
+    {
+      "id": 14,
+      "name": "NISSAN FRONTIER",
+      "brand": "NISSAN",
+      "price": 37000000,
+      "year": 2020,
+      "image": "https://placehold.co/400x300?text=4x4+14",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 15,
+      "name": "GMC CANYON",
+      "brand": "GMC",
+      "price": 56000000,
+      "year": 2021,
+      "image": "https://placehold.co/400x300?text=4x4+15",
+      "features": ["Automático", "4x4", "Bencina"]
+    },
+    {
+      "id": 16,
+      "name": "DODGE DAKOTA",
+      "brand": "DODGE",
+      "price": 52000000,
+      "year": 2022,
+      "image": "https://placehold.co/400x300?text=4x4+16",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 17,
+      "name": "RAM 1500 REBEL",
+      "brand": "RAM",
+      "price": 67000000,
+      "year": 2023,
+      "image": "https://placehold.co/400x300?text=4x4+17",
+      "features": ["Automático", "4x4", "Bencina"]
+    },
+    {
+      "id": 18,
+      "name": "FORD BRONCO",
+      "brand": "FORD",
+      "price": 58000000,
+      "year": 2022,
+      "image": "https://placehold.co/400x300?text=4x4+18",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 19,
+      "name": "TOYOTA LAND CRUISER",
+      "brand": "TOYOTA",
+      "price": 85000000,
+      "year": 2023,
+      "image": "https://placehold.co/400x300?text=4x4+19",
+      "features": ["Automático", "4x4", "Diesel"]
+    },
+    {
+      "id": 20,
+      "name": "JEEP CHEROKEE TRAILHAWK",
+      "brand": "JEEP",
+      "price": 65000000,
+      "year": 2021,
+      "image": "https://placehold.co/400x300?text=4x4+20",
+      "features": ["Automático", "4x4", "Bencina"]
+    }
+  ]
+}

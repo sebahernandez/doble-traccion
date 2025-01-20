@@ -1,0 +1,180 @@
+---
+const timelineItems = [
+  {
+    number: "1",
+    title: "Los Comienzos",
+    subtitle:"Un sueño que se hace realidad",
+    date: "Junio 2017",
+    description: "Nuestro Fundador y CEO lanza el ecommerce dobletracccion.cl, con el objetivo de proveer accesorios 4x4 originales en Chile"
+  },
+  {
+    number: "2",
+    title: "Primeras Oficinas",
+    subtitle:"Hacia la expansión",
+    date: "Octubre 2017",
+    description: "4 meses después, confía en el proyecto y arrienda una pequeña oficina, donde trabaja solo para atender a sus clientes como Instalador y revendedor."
+  },
+  {
+    number: "3",
+    title: "Nueva casa matriz",
+    subtitle:"Crecimiento y consolidación",
+    date: "Octubre 2018",
+    description: "Decidimos mudarnos a una oficina de mayor tamaño, lo que nos permitió ampliar nuestras operaciones y continuar con el crecimiento sostenido."
+  },
+  {
+    number: "4",
+    title: "Apertura primer taller",
+    subtitle:"Expansión de servicios",
+    date: "Enero 2022",
+    description: "Apertura de taller mecánico. Con esta expansión, el equipo creció y nos permitió ofrecer un servicio integral, mejorando la experiencia 4x4."
+  },
+  {
+    number: "5",
+    title: "Inauguración",
+    subtitle:"Doble tracción automotriz",
+    description: "Somos una automotora especializada en vehículos 4x4, nos posicionamos como la primera en Chile en comercializar Camionetas 4x4 y Carrozados tanto estándar como modificados."
+  }
+];
+---
+
+<section class="timeline-section">
+  <div class="container">
+    <p class="text-center text-xl">Desde una tienda online a un Taller y Automotora 4×4 líder</p>
+    <h2 class="text-2xl font-bold py-5">Nuestra historia</h2>
+    <div class="timeline">
+      {timelineItems.map((item) => (
+        <div class="timeline-item">
+          <div class="timeline-number">{item.number}</div>
+          <div class="timeline-content">
+            <div class="bg-black p-3">
+              <h3>{item.title}</h3>
+              <span class="text-stone-400">{item.subtitle}</span>
+            </div>      
+            {item.date && <span class="date py-2">{item.date}</span>}
+            <p>{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline-section {
+    background-color: #ffd34d;
+    padding: 4rem 0;
+    color: #000;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #000;
+  }
+
+  .timeline-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .timeline-number {
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    border:7px solid black
+  }
+
+  .timeline-content {
+    width: calc(50% - 50px);
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 50%;
+    margin-left: 10px;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 50%;
+    margin-right: 10px;
+  }
+
+  h3 {
+    margin:2px;
+    font-size: 1.2rem;
+    color: aliceblue;
+    font-weight: bold;
+  }
+
+  .date {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 30px;
+    }
+
+    .timeline-number {
+      left: 30px;
+    }
+
+    .timeline-content {
+      width: calc(100% - 80px);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: 60px;
+      margin-right: 0;
+    }
+  }
+</style>

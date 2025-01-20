@@ -1,0 +1,75 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+  <nav class="flex justify-between items-center max-w-[90rem] mx-auto">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <a href="/">
+        <img src="/images/logo/logo.webp" alt="Doble Tracción" class="md:h-16 h-12" />
+      </a>
+    </div>
+
+    <!-- Menú para escritorio -->
+    <div class="hidden md:flex space-x-6">
+      <a class={currentPath === "" ? "active" : "text-white font-bold"} href="/">INICIO</a>
+      <a class={currentPath === "nosotros" ? "active" : "text-white font-bold"} href="/nosotros">NOSOTROS</a>
+      <a class={currentPath === "catalogo" ? "active" : "text-white font-bold"} href="/catalogo">CATÁLOGO</a>
+      <a class={currentPath === "contacto" ? "active" : "text-white font-bold"} href="/contacto">CONTACTO</a>
+    </div>
+
+    <!-- Botón de menú para móvil -->
+    <button class="mobile-menu-button md:hidden">
+      <svg class="w-6 h-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <!-- Menú para móvil -->
+    <div id="mobile-menu" class=" hidden flex flex-col fixed top-16 left-0 w-full bg-black bg-opacity-95 text-center space-y-4 py-4 md:hidden">
+      <a class={currentPath === "" ? "active" : "text-white font-bold"} href="/">INICIO</a>
+      <a class={currentPath === "nosotros" ? "active" : "text-white font-bold"} href="/nosotros">NOSOTROS</a>
+      <a class={currentPath === "catalogo" ? "active" : "text-white font-bold"} href="/catalogo">CATÁLOGO</a>
+      <a class={currentPath === "contacto" ? "active" : "text-white font-bold"} href="/contacto">CONTACTO</a>
+    </div>
+
+    <!-- Botón CTA -->
+    <a href="#vende" class="bg-yellow-400 text-black px-6 py-2 rounded-md font-bold hover:bg-yellow-500 hidden md:block">
+      VENDE TU 4X4
+    </a>
+  </nav>
+
+<script>
+ // Toggle mobile menu
+ const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const mobileMenu = document.querySelector('#mobile-menu');
+  
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking on a link
+  const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (event) => {
+    const isClickInsideMenu = mobileMenu.contains(event.target as Node);
+    const isClickOnButton = mobileMenuButton.contains(event.target as Node);
+    
+    if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+    }
+  });
+</script>
+
+<style>
+  .active {
+    color: #FFD700;
+    font-weight: bold;
+  }
+</style>

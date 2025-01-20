@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Timeline from '../components/Timeline.astro';
+import Arrow from '../components/buttons/arrow.astro';
+---
+
+<Layout title="Nosotros - Doble Tracción">
+  <div class="w-full h-[500px] overflow-hidden">
+    <img src="images/banners/nosotros-banner.jpg" alt="nosotros" class="w-full h-full object-cover">
+ </div>
+  <Timeline />
+  <div class="w-full h-96 bg-cover bg-center flex justify-center items-center flex-col" style="background-image: url('images/banners/nosotros-oficina.jpg');">
+  <div class="flex justify-center items-center gap-2 flex-col md:flex-row ">
+    <img src="/images/logo/icon-logo.png" alt="logo" class="w-24">
+    <h2 class="text-4xl text-yellow-400 font-bold">VER STOCK COMPLETO</h2>
+    <div>
+     <Arrow />
+    </div>
+  </div>
+    <p class="text-center text-white py-2">
+      Comprometidos con ofrecer soluciones automotrices integrales, basadas en experiencia, innovación y pasión por la excelencia.
+    </p>
+  </div>
+</Layout>

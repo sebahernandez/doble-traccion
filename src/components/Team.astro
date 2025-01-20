@@ -1,0 +1,34 @@
+---
+const team = [
+  { name: "Diego", role: "Gerente Comercial", image: "/images/team/diego.png" },
+  { name: "Gabriel", role: "Jefe de Sucursal Kennedy", image: "/images/team/gabriel.png" },
+  { name: "Fabiola", role: "Asesora Financiera", image: "/images/team/fabiola.png" },
+  { name: "William", role: "Asesor Comercial", image: "/images/team/william.png" },
+  { name: "Javier", role: "Jefe de Sucursal Vitacura", image: "/images/team/javier.png" },
+  { name: "Benjamín", role: "Asesor Comercial", image: "/images/team/benjamin.png" },
+  { name: "Héctor", role: "Jefe de Sucursal Concepción", image: "/images/team/hector.png" },
+  { name: "Jean", role: "Lavador/Recepcionista", image: "/images/team/jean.png" }
+];
+---
+<section class="py-16 bg-black text-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Equipo</h2>
+    <p class="text-center mb-12 max-w-3xl mx-auto text-gray-300">
+      Un equipo de expertos comprometidos con ofrecer soluciones automotrices integrales, 
+      basadas en experiencia, innovación y pasión por la excelencia. Con nosotros, tu vehículo 
+      está en las mejores manos.
+    </p>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {team.map(member => (
+        <div class="text-center">
+          <div class="w-32 h-32 mx-auto mb-4">
+            <img src={member.image} alt={member.name} class="w-full h-full rounded-full object-cover border-4 border-yellow-400"/>
+          </div>
+          <h3 class="font-bold text-lg text-white">{member.name}</h3>
+          <p class="text-gray-400 text-sm">{member.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
