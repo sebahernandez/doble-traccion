@@ -1,26 +1,14 @@
 ---
-const testimonials = [
-  {
-    name: "Carlos Ruiz",
-    text: "Excelente servicio y atención. El proceso de venta fue muy rápido y transparente.",
-    image: "https://placehold.co/100x100?text=CR"
-  },
-  {
-    name: "María Soto",
-    text: "Me ayudaron a encontrar exactamente lo que buscaba. Muy profesionales y atentos.",
-    image: "https://placehold.co/100x100?text=MS"
-  },
-  {
-    name: "Pedro Lagos",
-    text: "La mejor experiencia comprando un vehículo. El equipo es muy conocedor y honesto.",
-    image: "https://placehold.co/100x100?text=PL"
-  }
-];
+import testimonialsData from '../data/testimonials.json';
+
+// Leer el arreglo
+const testimonials = testimonialsData.testimonials;
 ---
+
 <section class="py-16 bg-gray-100">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-4">Testimonios</h2>
-    <p class="text-center mb-12 text-gray-600 text-pretty px-2 md:px-[240px]">
+    <p class="text-center mb-12 text-gray-600 px-2 md:px-[240px]">
       Descubre lo que nuestros clientes tienen que decir sobre su experiencia con nosotros.
       Cada testimonio refleja nuestro compromiso con la calidad, el servicio personalizado y la
       satisfacción total.
@@ -28,11 +16,11 @@ const testimonials = [
 
     <div class="testimonials-carousel relative overflow-hidden">
       <div class="testimonials-track flex transition-transform duration-500">
-        {[...testimonials, ...testimonials].map((testimonial) => (
+        {testimonials.concat(testimonials).map((testimonial, index) => (
           <div class="testimonial-slide w-full md:w-1/3 flex-shrink-0 px-4">
             <div class="bg-white p-6 rounded-lg shadow-lg h-full">
               <div class="flex items-center mb-4">
-                <img src={testimonial.image} alt={testimonial.name} class="w-12 h-12 rounded-full mr-4"/>
+                <img src={testimonial.image} alt={testimonial.name} class="w-12 h-12 rounded-full mr-4 object-cover aspect-square"/>
                 <h3 class="font-bold">{testimonial.name}</h3>
               </div>
               <p class="text-gray-600 italic">"{testimonial.text}"</p>
@@ -48,7 +36,7 @@ const testimonials = [
   .testimonials-carousel {
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
-  
+
   @media (max-width: 768px) {
     .testimonial-slide {
       width: 100%;
@@ -57,43 +45,56 @@ const testimonials = [
 </style>
 
 <script>
-  function setupCarousel() {
-    const track = document.querySelector('.testimonials-track');
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.testimonials-track') as HTMLElement;
     const slides = document.querySelectorAll('.testimonial-slide');
-    const slideCount = slides.length / 2; // Dividido por 2 porque duplicamos los slides
+    const totalSlides = slides.length / 2; // Original slides count
+    const slideWidth = (slides[0] as HTMLElement).offsetWidth;
     let currentIndex = 0;
-    
+    let interval;
+
+    // Actualiza la posición de las diapositivas
     function updateSlidePosition() {
-      const slideWidth = (slides[0] as HTMLElement).offsetWidth;
       const offset = -currentIndex * slideWidth;
-      (track as HTMLElement).style.transform = `translateX(${offset}px)`;
+      track.style.transform = `translateX(${offset}px)`;
     }
-    
+
+    // Mover al siguiente slide
     function moveToNextSlide() {
-      currentIndex = (currentIndex + 1) % slideCount;
-      
-      // Si llegamos al final, reseteamos sin transición
-      if (currentIndex === 0) {
-        (track as HTMLElement).style.transition = 'none';
+      currentIndex++;
+      if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+        track.style.transition = 'none'; // Sin transición para bucle infinito
         updateSlidePosition();
-        // Forzamos un reflow
-        (track as HTMLElement).offsetHeight;
-        (track as HTMLElement).style.transition = 'transform 500ms ease';
+        // Forzar reflow antes de reactivar transición
+        track.offsetHeight;
+        track.style.transition = 'transform 500ms ease';
       } else {
         updateSlidePosition();
       }
     }
 
-    // Inicializar posición
-    updateSlidePosition();
-    
-    // Mover cada 5 segundos
-    setInterval(moveToNextSlide, 5000);
-    
-    // Actualizar cuando cambie el tamaño de la ventana
-    window.addEventListener('resize', updateSlidePosition);
-  }
+    // Reiniciar el intervalo
+    function startCarousel() {
+      interval = setInterval(moveToNextSlide, 5000);
+    }
 
-  // Ejecutar cuando el DOM esté listo
-  document.addEventListener('astro:page-load', setupCarousel);
+    // Parar el carrusel (opcional para agregar interacción futura)
+    function stopCarousel() {
+      clearInterval(interval);
+    }
+
+    // Configurar inicialización
+    function initCarousel() {
+      updateSlidePosition();
+      startCarousel();
+
+      // Recalcular posición en redimensionamiento
+      window.addEventListener('resize', () => {
+        updateSlidePosition();
+      });
+    }
+
+    initCarousel();
+  });
 </script>

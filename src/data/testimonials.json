@@ -1,0 +1,49 @@
+{
+  "testimonials": [
+    {
+      "name": "Javier Silva",
+      "text": "Excelente, servicio, atención y comunicación para ayudar en todas las dudas que uno pueda tener, trabajo realizado con una calidad excelente.",
+      "image": "https://placehold.co/100x100?text=JS"
+    },
+    {
+      "name": "Carlos Castillo",
+      "text": "Excelente servicio y atención recibidos por parte de Rodrigo y todo el equipo de Dobletraccion. Fueron muy diligentes en atender mis requerimientos como cliente...",
+      "image": "/images/testimonials/carlos-carrillo.webp"
+    },
+    {
+      "name": "Pablo Letelier",
+      "text": "Excelente atención y buena onda! recomendable la asistencia al dobletracción fest 🔥",
+      "image": "/images/testimonials/pablo-letelier.webp"
+    },
+    {
+      "name": "Matías Bilbao",
+      "text": "Excelente pero excelente atención de a automotora, todo su personal un 7 como personas y vendedores. Nos ayudaron en todo para comprar una gran camioneta para nuestra familia.",
+      "image": "/images/testimonials/matias-bilbao.webp"
+    },
+    {
+      "name": "Pedro Maldonado",
+      "text": "Vendí mi Jeep Grand Cherokee con Doble Tracción, cumplieron un servicio de lujo, preocupados y rápidos, quedé muy satisfecho y los recomiendo!!",
+      "image": "/images/testimonials/pedro-maldonado.webp"
+    },
+    {
+      "name": "Álvaro Kirberg",
+      "text": "Excelente Servicio, precio justo y gran velocidad de venta. 100% recomendables, sobre todo para venta de Jeep's.",
+      "image": "/images/testimonials/alvaro-kirberg.webp"
+    },
+    {
+      "name": "Carlos Carrillo",
+      "text": "100% recomendados los amigos de Doble Traccion Automotriz. Les dejé mi camioneta en su local y en tan solo 7 días ya había un comprador.",
+      "image": "/images/testimonials/carlos-carrillo.webp"
+    },
+    {
+      "name": "Lucas Parra",
+      "text": "Tal cual como tiene que ser un servicio: Comunicación clara, precio razonable, asesoría personalizada, cordialidad, profesionalidad...",
+      "image": "/images/testimonials/lucas-parra.webp"
+    },
+    {
+      "name": "José Tomas Corral",
+      "text": "Excelente experiencia y servicio al vender mi auto con Doble Tracción. Te acompañan, asesoran y ayudan en todo lo que sea posible.",
+      "image": "https://placehold.co/100x100?text=JC"
+    }
+  ]
+}
