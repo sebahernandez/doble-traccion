@@ -4,12 +4,13 @@ import Team from '../components/Team.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Maps from '../components/maps/Maps.astro';
 import {FeaturedCars} from '../components/featured-car/FeaturedCars'
+import {ImageSlider} from '../components/image-slider/ImageSlider'
 ---
 
 <Layout title="Doble Tracción - Expertos en 4x4">
   <main>
     <!-- Hero Section -->
-    <section class="relative h-[600px] flex items-center justify-center">
+   <!--  <section class="relative h-[600px] flex items-center justify-center">
       <div class="absolute inset-0 z-0">
         <img 
           src="/images/banners/banner-bg.webp" 
@@ -40,7 +41,8 @@ import {FeaturedCars} from '../components/featured-car/FeaturedCars'
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
+     <ImageSlider client:load/>
      <FeaturedCars client:load />
     <section>
       <div class="mx-auto">
