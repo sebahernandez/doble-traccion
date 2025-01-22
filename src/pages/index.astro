@@ -5,50 +5,15 @@ import Testimonials from '../components/Testimonials.astro';
 import Maps from '../components/maps/Maps.astro';
 import {FeaturedCars} from '../components/featured-car/FeaturedCars'
 import {ImageSlider} from '../components/image-slider/ImageSlider'
+import ViewStock from '../components/banners/ViewStock.astro';
 ---
 
 <Layout title="Doble Tracción - Expertos en 4x4">
   <main>
-    <!-- Hero Section -->
-   <!--  <section class="relative h-[600px] flex items-center justify-center">
-      <div class="absolute inset-0 z-0">
-        <img 
-          src="/images/banners/banner-bg.webp" 
-          alt="4x4 vehicles" 
-          class="w-full h-full object-cover brightness-50"
-        />
-      </div>
-      <div class="relative z-10 text-center text-white">
-        <h1 class="text-5xl font-bold mb-6">
-          Expertos en Vehículos 4x4
-        </h1>
-        <p class="text-xl mb-8 max-w-2xl mx-auto">
-          Encuentra tu próximo vehículo 4x4 con nosotros. 
-          Amplia selección de marcas y modelos con garantía.
-        </p>
-        <div class="flex gap-4 justify-center">
-          <a 
-            href="/catalogo" 
-            class="bg-yellow-400 text-black px-8 py-3 rounded-md font-bold hover:bg-yellow-500"
-          >
-            Ver Catálogo
-          </a>
-          <a 
-            href="/contacto" 
-            class="bg-transparent border-2 border-white px-8 py-3 rounded-md font-bold hover:bg-white hover:text-black"
-          >
-            Contáctanos
-          </a>
-        </div>
-      </div>
-    </section> -->
      <ImageSlider client:load/>
      <FeaturedCars client:load />
-    <section>
-      <div class="mx-auto">
-        <img src="/images/banners/banner-sucursal.webp" alt="nueva sucursal" class="w-full" />
-      </div>
-    </section>
+     <ViewStock />
+
     
     <!-- Consignment Section -->
     <section class="py-16 bg-yellow-400">
@@ -62,7 +27,7 @@ import {ImageSlider} from '../components/image-slider/ImageSlider'
               está en nuestras manos, nos encargamos de siempre mantenerlo lavado y activo en el mercado.
             </p>
             <a 
-              href="#contacto" 
+              href="/contacto" 
               class="bg-black text-white px-8 py-3 rounded-md font-bold inline-block hover:bg-gray-800"
             >
               Consigna tu Vehículo
@@ -76,6 +41,11 @@ import {ImageSlider} from '../components/image-slider/ImageSlider'
             />
           </div>
         </div>
+      </div>
+    </section>
+    <section>
+      <div class="mx-auto">
+        <img src="/images/banners/banner-sucursal.webp" alt="nueva sucursal" class="w-full" />
       </div>
     </section>
 
