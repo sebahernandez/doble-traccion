@@ -59,7 +59,6 @@ export const FeaturedCars: React.FC = () => {
             modules={[Navigation, Autoplay]} // Registra los módulos
             spaceBetween={30} // Espacio entre diapositivas
             slidesPerView={4} // Cantidad de diapositivas visibles
-            navigation // Activa navegación (botones prev/next)
             pagination={{ clickable: true }} // Activa paginación con clic
             autoplay={{
               delay: 3000, // Tiempo entre cada cambio de diapositiva (en ms)
@@ -70,14 +69,11 @@ export const FeaturedCars: React.FC = () => {
               0: {
                 slidesPerView: 1,
               },
-              400: {
-                slidesPerView: 2,
-              },
               639: {
-                slidesPerView: 2,
+                slidesPerView: 1,
               },
               865: {
-                slidesPerView: 4,
+                slidesPerView: 2,
               },
               1000: {
                 slidesPerView: 4,
