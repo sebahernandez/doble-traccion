@@ -1,5 +1,6 @@
 ---
 import testimonialsData from '../data/testimonials.json';
+import StarRating from './rating-stars/StarRating.astro';
 
 // Leer el arreglo
 const testimonials = testimonialsData.testimonials;
@@ -16,12 +17,14 @@ const testimonials = testimonialsData.testimonials;
 
     <div class="testimonials-carousel relative overflow-hidden">
       <div class="testimonials-track flex transition-transform duration-500">
-        {testimonials.concat(testimonials).map((testimonial, index) => (
+        {testimonials.concat(testimonials).map((testimonial) => (
           <div class="testimonial-slide w-full md:w-1/3 flex-shrink-0 px-4">
             <div class="bg-white p-6 rounded-lg shadow-lg h-full">
               <div class="flex items-center mb-4">
                 <img src={testimonial.image} alt={testimonial.name} class="w-12 h-12 rounded-full mr-4 object-cover aspect-square"/>
-                <h3 class="font-bold">{testimonial.name}</h3>
+                <h3 class="font-bold">{testimonial.name}
+                  <StarRating rating={testimonial.rating} />
+                </h3>
               </div>
               <p class="text-gray-600 italic">"{testimonial.text}"</p>
             </div>
@@ -51,7 +54,7 @@ const testimonials = testimonialsData.testimonials;
     const totalSlides = slides.length / 2; // Original slides count
     const slideWidth = (slides[0] as HTMLElement).offsetWidth;
     let currentIndex = 0;
-    let interval;
+    let interval: string;
 
     // Actualiza la posición de las diapositivas
     function updateSlidePosition() {

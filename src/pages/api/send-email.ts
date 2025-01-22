@@ -10,7 +10,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     const { data: emailData, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "your-email@example.com", // Replace with your email
+      to: "sebaprogramer@gmail.com", // Replace with your email
       subject: `Nuevo mensaje de contacto de ${name}`,
       html: `
         <h2>Nuevo mensaje de contacto</h2>
