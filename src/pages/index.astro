@@ -31,13 +31,14 @@ import ViewStock from '../components/banners/ViewStock.astro';
               Consigna tu Vehículo
             </a>
           </div>
-          <div>
+          <div class="group">
             <img 
               src="/images/consignacion.webp" 
               alt="Consignación de vehículos" 
-              class="rounded-lg shadow-xl"
+              class="rounded-lg shadow-xl transition-transform transform group-hover:scale-105 group-hover:shadow-2xl group-hover:opacity-90"
             />
           </div>
+          
         </div>
       </div>
     </section>
@@ -53,22 +54,5 @@ import ViewStock from '../components/banners/ViewStock.astro';
   </main>
 </Layout>
 
-<style is:global >
-   /* Ocultar flechas en pantallas pequeñas */
-   .swiper-button-prev,
-  .swiper-button-next {
-    display: none;
-  }
-  .swiper-button-prev, .swiper-button-next{
-    color: white;
-  }
-  @media (min-width: 768px) {
-    /* Mostrar flechas en pantallas medianas o más grandes */
-    .swiper-button-prev,
-    .swiper-button-next {
-      display: block;
-    }
-  }
-</style>
 
 

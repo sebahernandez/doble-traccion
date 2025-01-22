@@ -22,8 +22,8 @@ const team = [
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
       {team.map(member => (
         <div class="text-center">
-          <div class="w-32 h-32 mx-auto mb-4">
-            <img src={member.image} alt={member.name} class="w-full h-full rounded-full object-cover border-4 border-yellow-400"/>
+          <div class="w-32 h-32 mx-auto mb-4 group">
+            <img src={member.image} alt={member.name} class="w-full h-full rounded-full object-cover border-4 border-yellow-400 shadow-xl transition-transform transform group-hover:scale-105 group-hover:shadow-2xl group-hover:opacity-90 "/>
           </div>
           <h3 class="font-bold text-lg text-white">{member.name}</h3>
           <p class="text-gray-400 text-sm">{member.role}</p>
