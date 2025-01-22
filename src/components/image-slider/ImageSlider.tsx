@@ -44,7 +44,7 @@ export const ImageSlider = () => {
                   </a>
                   <a
                     href="/contacto"
-                    className="bg-transparent border-2 border-white px-8 py-3 rounded-md font-bold hover:bg-white hover:text-black"
+                    className="bg-white text-black border-2 border-white px-8 py-3 rounded-md font-bold hover:bg-gray-100 hover:text-black"
                   >
                     Contáctanos
                   </a>
