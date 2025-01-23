@@ -1,3 +1,7 @@
+---
+import { LuMapPin } from "react-icons/lu";
+---
+
 <section class="bg-black py-20">
     <div class="container mx-auto px-6 md:px-12">
       <!-- Título y descripción -->
@@ -11,12 +15,12 @@
       </div>
   
       <!-- Contenido de sucursales -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         <!-- Sucursal 1 -->
         <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
           <div class="p-6">
-            <h3 class="text-white text-2xl font-semibold mb-4">
-              Av. Kennedy 8076, Vitacura, Santiago.
+            <h3 class="flex items-center gap-1 text-white text-xl font-semibold">
+              <LuMapPin />  Av.Kennedy 8076 Vitacura, Santiago.
 
             </h3>
         
@@ -36,14 +40,34 @@
         <!-- Sucursal 2 -->
         <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
           <div class="p-6">
-            <h3 class="text-white text-2xl font-semibold mb-4">
-              Av. Kennedy 9667, Vitacura, Santiago.
+            <h3 class="flex items-center gap-1 text-white text-xl font-semibold">
+              <LuMapPin /> Av. Vitacura 9667, Santiago.
             </h3>
     
           </div>
           <div class="relative w-full" style="aspect-ratio: 16 / 9;">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15251.45915483226!2d-70.54205!3d-33.387334!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ceb377702077%3A0x9e5413832a701286!2sAv.%20Pdte.%20Kennedy%209667%2C%20Vitacura%2C%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e1!3m2!1ses-419!2scl!4v1737507355609!5m2!1ses-419!2scl"
+              class="absolute inset-0 w-full h-full rounded-b-lg"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+
+         <!-- Sucursal 3 -->
+         <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <div class="p-6">
+            <h3 class="flex items-center gap-1 text-white text-xl font-semibold">
+              <LuMapPin /> Av. Pedro de Valdivia 491, Concepción.
+            </h3>
+    
+          </div>
+          <div class="relative w-full" style="aspect-ratio: 16 / 9;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.5805688387068!2d-73.0567118235515!3d-36.8405448790481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b6773487f3d7%3A0x769e6401c15af8d1!2sAv.%20Pedro%20de%20Valdivia%20491%2C%20Concepci%C3%B3n%2C%20B%C3%ADo%20B%C3%ADo!5e1!3m2!1ses-419!2scl!4v1737664446379!5m2!1ses-419!2scl"
               class="absolute inset-0 w-full h-full rounded-b-lg"
               style="border:0;"
               allowfullscreen=""
