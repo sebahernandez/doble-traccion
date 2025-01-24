@@ -47,7 +47,7 @@ export const CarWiew: React.FC<SwiperComponentProps> = ({ images }) => {
               <img
                 src={img.imageUrl}
                 alt={img.alt || `Imagen ${index + 1}`}
-                className="w-full h-52 sm:h-50 md:h-[550px] shadow-md hover:shadow-lg object-cover cursor-pointer"
+                className="w-full h-56 sm:h-50 md:h-[550px] shadow-md hover:shadow-lg object-cover cursor-pointer"
               />
             </SwiperSlide>
           ))

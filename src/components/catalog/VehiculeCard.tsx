@@ -20,7 +20,7 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
         <img
           src={vehicle.imageUrl}
           alt={vehicle.name}
-          className="w-full h-52 object-cover"
+          className="w-full h-60 object-cover"
         />
       </a>
       <div className="p-2">
