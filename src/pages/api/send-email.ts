@@ -1,6 +1,8 @@
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 
+export const prerender = false;
+
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 export const POST: APIRoute = async ({ request }) => {
@@ -10,7 +12,8 @@ export const POST: APIRoute = async ({ request }) => {
 
     const { data: emailData, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "sebaprogramer@gmail.com", // Replace with your email
+      to: "sebaprogramer@gmail.com", // cambiar por el email de la empresa
+      cc: "maravena@eserp.cl",
       subject: `Nuevo mensaje de contacto de ${name}`,
       html: `
         <h2>Nuevo mensaje de contacto</h2>
