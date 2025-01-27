@@ -12,11 +12,10 @@ export const POST: APIRoute = async ({ request }) => {
 
     const { data: emailData, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "sebaprogramer@gmail.com", // cambiar por el email de la empresa
-      cc: "maravena@eserp.cl",
-      subject: `Nuevo mensaje de contacto de ${name}`,
+      to: "gabriel.vianna@dobletraccion.cl", // cambiar por el email de la empresa
+      subject: `(Sitio web) Nuevo mensaje de contacto de ${name}`,
       html: `
-        <h2>Nuevo mensaje de contacto</h2>
+        <h2>Nuevo mensaje de contacto sitio web</h2>
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Teléfono:</strong> ${phone}</p>
