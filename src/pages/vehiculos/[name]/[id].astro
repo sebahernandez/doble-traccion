@@ -69,9 +69,16 @@ const formattedPrice = formatPrice(vehicle.price);
                   <p class="text-lg font-semibold text-gray-200">{vehicle.location}</p>
                 </div>
               </div>
+
+              
           
               <!-- Llamada a la acción -->
               <div class="border-t border-gray-700 pt-6">
+              <div class="pb-5">
+                  <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Descripción</h3>
+                  <p class="text-lg font-semibold text-gray-200">{vehicle.description}</p>
+              </div>
+
                 <h3 class="text-lg font-medium text-gray-100 mb-4">¿Interesado en este vehículo?</h3>
                 <a
                   href="/contacto"
