@@ -15,7 +15,24 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
   const formattedPrice = formatPrice(vehicle.price);
 
   return (
-    <div className="bg-gray-900 rounded-lg shadow-lg overflow-hidden h-full border border-gray-800">
+    <div className="relative bg-gray-900 rounded-lg shadow-lg overflow-hidden h-full border border-gray-800">
+      <div className="absolute top-2 right-3">
+        <div>
+          {vehicle.available ? (
+            <div className="flex items-center justify-center gap-2">
+              <div className="bg-green-500 text-white px-2 py-1 rounded-full text-[9px] font-bold uppercase">
+                Disponible
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center justify-center gap-2">
+              <div className="bg-red-500 text-white px-2 py-1 rounded-full text-[9px] font-bold uppercase">
+                Vendido
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
       <a href={`/vehiculos/${formatNameForURL(vehicle.name)}/${vehicle.id}`}>
         <img
           src={vehicle.imageUrl}

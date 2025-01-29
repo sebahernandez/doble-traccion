@@ -33,8 +33,20 @@ const formattedPrice = formatPrice(vehicle.price);
   <section class="bg-stone-950 text-gray-100 py-36">
     <div class="container mx-auto p-6">
       <!-- Título y Precio -->
-      <div class="text-left pl-3 mb-8">
-        <h1 class="text-xl md:text-2xl font-extrabold text-gray-300">{vehicle.name}</h1>
+      
+      <div class="text-left pl-3 mb-10">
+        <div>
+          {vehicle.available ? (
+            <div class="bg-green-500 text-white px-2 py-1 rounded-full text-[12px] font-bold uppercase inline-block">
+              Disponible
+            </div>
+          ) : (
+            <div class="bg-red-500 text-white px-2 py-1 rounded-full text-[12px] font-bold uppercase inline-block">
+              Vendido
+            </div>
+          )}
+        </div>
+        <h1 class="text-xl md:text-2xl font-extrabold text-gray-300 mt-5">{vehicle.name}</h1>
         <p class="text-xl text-yellow-500 font-bold mt-2">Precio: {formattedPrice}</p>
       </div>
   
@@ -74,10 +86,15 @@ const formattedPrice = formatPrice(vehicle.price);
           
               <!-- Llamada a la acción -->
               <div class="border-t border-gray-700 pt-6">
-              <div class="pb-5">
+                <div class="pb-5">
                   <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Descripción</h3>
-                  <p class="text-lg font-semibold text-gray-200">{vehicle.description}</p>
+                  <ul class="list-disc pl-5 text-lg font-semibold text-gray-200">
+                    {vehicle.description.split(/[*•]+/).map((item, index) => (
+                      <li>{item.trim()}</li>
+                    ))}
+                  </ul>
               </div>
+             
 
                 <h3 class="text-lg font-medium text-gray-100 mb-4">¿Interesado en este vehículo?</h3>
                 <a

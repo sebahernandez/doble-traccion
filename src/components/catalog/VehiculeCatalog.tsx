@@ -103,9 +103,10 @@ export function VehicleCatalog() {
       ) : (
         <>
           <div className="grid grid-cols-1 sm:grid-col-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {paginatedVehicles.map((vehicle) => (
-              <VehicleCard key={vehicle.id} vehicle={vehicle} />
-            ))}
+            {paginatedVehicles.map((vehicle) => {
+              console.log("autos --->", vehicle); // Log each vehicle object
+              return <VehicleCard key={vehicle.id} vehicle={vehicle} />;
+            })}
           </div>
 
           {filteredVehicles.length > ITEMS_PER_PAGE && (
