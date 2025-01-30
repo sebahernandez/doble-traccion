@@ -14,10 +14,6 @@ interface VehicleCardProps {
 export function VehicleCard({ vehicle }: VehicleCardProps) {
   const formattedPrice = formatPrice(vehicle.price);
 
-  console.log(
-    `Vehicle availability: ${vehicle.available ? "Disponible" : "Vendido"}`
-  );
-
   return (
     <div className="relative bg-gray-900 rounded-lg shadow-lg overflow-hidden h-full border border-gray-800">
       <div className="absolute top-2 right-3">

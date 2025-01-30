@@ -3,6 +3,10 @@ import {CarWiew} from "../../../components/car-view/CarWiew";
 import { getCarsByIds } from "../../../lib/fetchVehicles";
 import Layout from "../../../layouts/Layout.astro";
 import { formatPrice } from "../../../helpers/formatHelpers";
+import { FaRoad } from "react-icons/fa";
+import { BsFillFuelPumpFill } from "react-icons/bs";
+import { GiGearStickPattern } from "react-icons/gi";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 // Capturamos el `id` desde los parámetros de la URL
 const { id } = Astro.params || {};
@@ -17,7 +21,6 @@ if (!response || !response.status) {
 
 // Obtenemos los datos del vehículo
 const vehicle = response.data;
-console.log("vehiculos interno -->", vehicle);
 
 // Datos para SEO
 const seoData = {
@@ -47,8 +50,11 @@ const formattedPrice = formatPrice(vehicle.price);
             </div>
           )}
         </div>
-        <h1 class="text-xl md:text-2xl font-extrabold text-gray-300 mt-5">{vehicle.name}</h1>
-        <p class="text-xl text-yellow-500 font-bold mt-2">Precio: {formattedPrice ? formattedPrice : 'Precio No disponible'}</p>
+        <h1 class="text-xl md:text-5xl font-extrabold text-gray-300 mt-5">{vehicle.name}</h1>
+        <div class="mt-2">
+          <small class="text-sm block text-gray-400">Precio:</small>
+          <p class="text-xl md:text-3xl text-yellow-500 font-bold">{formattedPrice ? formattedPrice : 'Precio No disponible'}</p>
+        </div>
       </div>
   
       <!-- Contenedor principal -->
@@ -64,22 +70,22 @@ const formattedPrice = formatPrice(vehicle.price);
               <h2 class="text-xl lg:text-2xl font-bold text-gray-100 mb-6">Detalles del Vehículo</h2>
           
               <!-- Especificaciones -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
                <div>
-                  <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Kilometraje</h3>
-                  <p class="text-lg font-semibold text-gray-200">{vehicle.miles ? `${vehicle.miles} km` : 'Kilometraje no disponible'}</p>
+                  <h3 class="text-md font-medium text-yellow-500 uppercase tracking-wide flex items-center gap-2"><FaRoad /> Kilometraje</h3>
+                  <p class="text-sm font-semibold text-gray-200">{vehicle.miles ? `${vehicle.miles} km` : 'Kilometraje no disponible'}</p>
                 </div>
                 <div>
-                  <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Tipo de Combustible</h3>
-                  <p class="text-lg font-semibold text-gray-200">{vehicle.fuelType ? vehicle.fuelType : 'Tipo de combustible no disponible'}</p>
+                  <h3 class="text-md font-medium text-yellow-500 uppercase tracking-wide flex items-center gap-2"><BsFillFuelPumpFill /> Tipo de Combustible</h3>
+                  <p class="text-sm font-semibold text-gray-200">{vehicle.fuelType ? vehicle.fuelType : 'Tipo de combustible no disponible'}</p>
                 </div>
                 <div>
-                  <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Transmisión</h3>
-                  <p class="text-lg font-semibold text-gray-200">{vehicle.transmission ? vehicle.transmission : 'Transmisión no disponible'}</p>
+                  <h3 class="text-md font-medium text-yellow-500 uppercase tracking-wide flex items-center gap-2"><GiGearStickPattern /> Transmisión</h3>
+                  <p class="text-sm font-semibold text-gray-200">{vehicle.transmission ? vehicle.transmission : 'Transmisión no disponible'}</p>
                 </div>
                 <div>
-                  <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Ubicación</h3>
-                  <p class="text-lg font-semibold text-gray-200">{vehicle.location ? vehicle.location : 'Ubicación no disponible'}</p>
+                  <h3 class="text-md font-medium text-yellow-500 uppercase tracking-wide flex items-center gap-2"><FaMapMarkerAlt/> Ubicación</h3>
+                  <p class="text-sm font-semibold text-gray-200">{vehicle.location ? vehicle.location : 'Ubicación no disponible'}</p>
                 </div>
               </div>
 
@@ -88,8 +94,8 @@ const formattedPrice = formatPrice(vehicle.price);
               <!-- Llamada a la acción -->
               <div class="border-t border-gray-700 pt-6">
                 <div class="pb-5">
-                  <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Descripción</h3>
-                  <ul class="list-disc pl-5 text-lg font-semibold text-gray-200">
+                  <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Descripción:</h3>
+                  <ul class="list-disc pl-5 text-lg font-semibold text-gray-200 mt-5">
                     {vehicle.description ? (
                       vehicle.description.split(/[*•]+/).map((item) => (
                         <li>{item.trim()}</li>
@@ -106,7 +112,7 @@ const formattedPrice = formatPrice(vehicle.price);
                   href="/contacto"
                   class="inline-block w-full text-center px-6 py-3 bg-yellow-500 text-gray-900 font-semibold rounded-lg shadow-md hover:bg-yellow-400 transition duration-300"
                 >
-                  Contactar al Vendedor
+                  Contáctanos ahora
                 </a>
               </div>
             </div>
