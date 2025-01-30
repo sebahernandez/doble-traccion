@@ -17,6 +17,7 @@ if (!response || !response.status) {
 
 // Obtenemos los datos del vehículo
 const vehicle = response.data;
+console.log("vehiculos interno -->", vehicle);
 
 // Datos para SEO
 const seoData = {
@@ -47,7 +48,7 @@ const formattedPrice = formatPrice(vehicle.price);
           )}
         </div>
         <h1 class="text-xl md:text-2xl font-extrabold text-gray-300 mt-5">{vehicle.name}</h1>
-        <p class="text-xl text-yellow-500 font-bold mt-2">Precio: {formattedPrice}</p>
+        <p class="text-xl text-yellow-500 font-bold mt-2">Precio: {formattedPrice ? formattedPrice : 'Precio No disponible'}</p>
       </div>
   
       <!-- Contenedor principal -->
@@ -64,21 +65,21 @@ const formattedPrice = formatPrice(vehicle.price);
           
               <!-- Especificaciones -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div>
+               <div>
                   <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Kilometraje</h3>
-                  <p class="text-lg font-semibold text-gray-200">{vehicle.miles} km</p>
+                  <p class="text-lg font-semibold text-gray-200">{vehicle.miles ? `${vehicle.miles} km` : 'Kilometraje no disponible'}</p>
                 </div>
                 <div>
                   <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Tipo de Combustible</h3>
-                  <p class="text-lg font-semibold text-gray-200">{vehicle.fuelType}</p>
+                  <p class="text-lg font-semibold text-gray-200">{vehicle.fuelType ? vehicle.fuelType : 'Tipo de combustible no disponible'}</p>
                 </div>
                 <div>
                   <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Transmisión</h3>
-                  <p class="text-lg font-semibold text-gray-200">{vehicle.transmission}</p>
+                  <p class="text-lg font-semibold text-gray-200">{vehicle.transmission ? vehicle.transmission : 'Transmisión no disponible'}</p>
                 </div>
                 <div>
                   <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Ubicación</h3>
-                  <p class="text-lg font-semibold text-gray-200">{vehicle.location}</p>
+                  <p class="text-lg font-semibold text-gray-200">{vehicle.location ? vehicle.location : 'Ubicación no disponible'}</p>
                 </div>
               </div>
 
@@ -89,9 +90,13 @@ const formattedPrice = formatPrice(vehicle.price);
                 <div class="pb-5">
                   <h3 class="text-sm font-medium text-gray-400 uppercase tracking-wide">Descripción</h3>
                   <ul class="list-disc pl-5 text-lg font-semibold text-gray-200">
-                    {vehicle.description.split(/[*•]+/).map((item, index) => (
-                      <li>{item.trim()}</li>
-                    ))}
+                    {vehicle.description ? (
+                      vehicle.description.split(/[*•]+/).map((item) => (
+                        <li>{item.trim()}</li>
+                      ))
+                    ) : (
+                      <li>Descripción no disponible</li>
+                    )}
                   </ul>
               </div>
              
