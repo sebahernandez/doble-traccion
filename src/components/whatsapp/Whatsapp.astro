@@ -1,0 +1,73 @@
+---
+import WhatsappIcon from "../icons/WhatsappIcon.astro";
+
+const phoneNumbers = [
+  { number: '+56940403988', label: 'Kennedy' },
+  { number: '+56933806123', label: 'Vitacura' },
+  { number: '+56923806177', label: 'Concepción' }
+];
+
+---
+
+<button class="whatsapp-button" id="whatsapp-button">
+  <WhatsappIcon />
+</button>
+
+
+<div class="phone-list flex" id="phone-list" style="display: none; z-index: 10;">
+  {phoneNumbers.map(({ number, label }) => (
+    <div class="flex items-center border-b-2 border-gray-100">
+      <small class="text-xs text-gray-500">📞 Sucursal -</small>
+      <a href={`https://wa.me/${number}`} target="_blank" class="text-sm text-blue-500">{label}</a>
+    </div>
+  ))}
+</div>
+
+
+<style>
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .phone-list {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+
+    }
+    .phone-list a {
+      color: black;
+      text-decoration: none;
+      padding: 5px 10px;
+      font-size: 14px;
+      border-bottom: 1px solid #ddd;
+    }
+    .phone-list a:last-child {
+      border-bottom: none;
+    }
+  </style>
+  
+
+  <script>
+    const btnWhatsapp = document.querySelector("#whatsapp-button") as HTMLButtonElement
+    const phoneList = document.querySelector("#phone-list") as HTMLDivElement
+    btnWhatsapp.addEventListener("click", () => {
+      phoneList.style.display = phoneList.style.display === "none" ? "block" : "none"
+    })
+  </script>
