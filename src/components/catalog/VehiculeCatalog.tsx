@@ -17,6 +17,8 @@ export function VehicleCatalog() {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
+  console.log("Vehicles:", vehicles);
+
   const fetchData = async () => {
     try {
       const autos = await fetchAllVehicles();
