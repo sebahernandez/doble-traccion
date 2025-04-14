@@ -65,11 +65,11 @@ export function VehicleCatalog() {
       filtered = filtered.filter((v) => v.brand === selectedBrand);
     }
 
-    // Apply sort
+    // Apply sort with proper price handling
     filtered.sort((a, b) => {
-      const priceA = Number(a.price);
-      const priceB = Number(b.price);
-      return sortOrder === "desc" ? priceB - priceA : priceA - priceB;
+      const priceA = a.price ? parseFloat(a.price.replace(/[,.]/g, "")) : 0;
+      const priceB = b.price ? parseFloat(b.price.replace(/[,.]/g, "")) : 0;
+      return sortOrder === "asc" ? priceA - priceB : priceB - priceA;
     });
 
     return filtered;
@@ -113,7 +113,6 @@ export function VehicleCatalog() {
         <>
           <div className="grid grid-cols-1 sm:grid-col-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {paginatedVehicles.map((vehicle) => {
-              console.log("autos --->", vehicle); // Log each vehicle object
               return <VehicleCard key={vehicle.id} vehicle={vehicle} />;
             })}
           </div>
