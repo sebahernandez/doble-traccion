@@ -5,10 +5,10 @@ interface SearchFiltersProps {
   readonly brands: string[];
   readonly selectedBrand: string;
   readonly searchQuery: string;
-  readonly sortOrder: "asc" | "desc";
+  readonly sortOrder: "asc" | "desc" | "none";
   readonly onBrandChange: (brand: string) => void;
   readonly onSearchChange: (query: string) => void;
-  readonly onSortChange: (order: "asc" | "desc") => void;
+  readonly onSortChange: (order: "asc" | "desc" | "none") => void;
 }
 
 export function SearchFilters({
@@ -37,7 +37,7 @@ export function SearchFilters({
   };
 
   const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    onSortChange(e.target.value as "asc" | "desc");
+    onSortChange(e.target.value as "asc" | "desc" | "none");
   };
 
   return (
@@ -88,6 +88,7 @@ export function SearchFilters({
           className="p-2 rounded-md border border-gray-700 bg-gray-800 text-white"
           aria-label="Ordenar por precio"
         >
+          <option value="none">Orden original</option>
           <option value="desc">Mayor precio</option>
           <option value="asc">Menor precio</option>
         </select>

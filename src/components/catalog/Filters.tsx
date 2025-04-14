@@ -5,10 +5,10 @@ interface FiltersProps {
   vehicles: Datum[];
   searchQuery: string;
   selectedBrand: string;
-  sortOrder: "asc" | "desc";
+  sortOrder: "asc" | "desc" | "none";
   onSearchChange: (query: string) => void;
   onBrandChange: (brand: string) => void;
-  onSortChange: (order: "asc" | "desc") => void;
+  onSortChange: (order: "asc" | "desc" | "none") => void;
 }
 
 export function Filters({
@@ -48,12 +48,14 @@ export function Filters({
       filtered = filtered.filter((v) => v?.brand === selectedBrand);
     }
 
-    // Apply sort with proper price handling
-    filtered.sort((a, b) => {
-      const priceA = a?.price ? parseFloat(a.price.replace(/[,.]/g, "")) : 0;
-      const priceB = b?.price ? parseFloat(b.price.replace(/[,.]/g, "")) : 0;
-      return sortOrder === "asc" ? priceA - priceB : priceB - priceA;
-    });
+    // Apply sort only if explicitly selected
+    if (sortOrder !== "none") {
+      filtered = [...filtered].sort((a, b) => {
+        const priceA = a?.price ? parseFloat(a.price.replace(/[,.]/g, "")) : 0;
+        const priceB = b?.price ? parseFloat(b.price.replace(/[,.]/g, "")) : 0;
+        return sortOrder === "asc" ? priceA - priceB : priceB - priceA;
+      });
+    }
 
     return filtered;
   }, [vehicles, searchQuery, selectedBrand, sortOrder]);
