@@ -32,9 +32,9 @@ export const ImageSlider = () => {
                 <h1 className="text-5xl font-bold mb-6 text-center">
                   {slide.title}
                 </h1>
-                <p className="text-xl mb-8 max-w-2xl mx-auto text-center">
+                {/*  <p className="text-xl mb-8 max-w-2xl mx-auto text-center">
                   {slide.description}
-                </p>
+                </p> */}
                 <div className="flex gap-4 justify-center">
                   <a
                     href="/catalogo"
