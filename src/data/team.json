@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Diego",
+    "image": "/images/team/diego.png",
+    "role": "Gerente Comercial"
+  },
+  {
+    "name": "Hector",
+    "image": "/images/team/hector.png",
+    "role": "Jefe de Sucursal Concepción"
+  },
+  {
+    "name": "Benjamin",
+    "image": "/images/team/Benjamin.jpeg",
+    "role": "Asesor Comercial"
+  },
+  {
+    "name": "Fabiola",
+    "image": "/images/team/Fabiola.jpeg",
+    "role": "Asesora Financiera"
+  },
+  {
+    "name": "Gabriel",
+    "image": "/images/team/Gabriel.jpeg",
+    "role": "Jefe de Sucursal Kennedy"
+  },
+  {
+    "name": "Javier",
+    "image": "/images/team/Javier.jpeg",
+    "role": "Jefe de Sucursal Vitacura"
+  },
+  {
+    "name": "Jean",
+    "image": "/images/team/Jean.jpeg",
+    "role": "Lavador/Recepcionista"
+  },
+  {
+    "name": "Jonathan",
+    "image": "/images/team/Jonathan.jpeg"
+  },
+  {
+    "name": "William",
+    "image": "/images/team/William.jpeg",
+    "role": "Asesor Comercial"
+  }
+]

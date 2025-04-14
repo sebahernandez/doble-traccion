@@ -1,14 +1,5 @@
 ---
-const team = [
-  { name: "Diego", role: "Gerente Comercial", image: "/images/team/diego.png" },
-  { name: "Gabriel", role: "Jefe de Sucursal Kennedy", image: "/images/team/gabriel.png" },
-  { name: "Fabiola", role: "Asesora Financiera", image: "/images/team/fabiola.png" },
-  { name: "William", role: "Asesor Comercial", image: "/images/team/william.png" },
-  { name: "Javier", role: "Jefe de Sucursal Vitacura", image: "/images/team/javier.png" },
-  { name: "Benjamín", role: "Asesor Comercial", image: "/images/team/benjamin.png" },
-  { name: "Héctor", role: "Jefe de Sucursal Concepción", image: "/images/team/hector.png" },
-  { name: "Jean", role: "Lavador/Recepcionista", image: "/images/team/jean.png" }
-];
+import team from '../data/team.json';
 ---
 <section class="py-16 bg-black text-white">
   <div class="container mx-auto px-4">
@@ -19,14 +10,14 @@ const team = [
       está en las mejores manos.
     </p>
     
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
       {team.map(member => (
         <div class="text-center">
           <div class="w-32 h-32 mx-auto mb-4 group">
-            <img src={member.image} alt={member.name} class="w-full h-full rounded-full object-cover border-4 border-yellow-400 shadow-xl transition-transform transform group-hover:scale-105 group-hover:shadow-2xl group-hover:opacity-90 "/>
+            <img src={member.image} alt={member.name || 'Nombre no disponible'} class="w-full h-full rounded-full object-cover border-4 border-yellow-400 shadow-xl transition-transform transform group-hover:scale-105 group-hover:shadow-2xl group-hover:opacity-90 "/>
           </div>
-          <h3 class="font-bold text-lg text-white">{member.name}</h3>
-          <p class="text-gray-400 text-sm">{member.role}</p>
+          <h3 class="font-bold text-lg text-white">{member.name || 'Nombre no disponible'}</h3>
+          <p class="text-gray-300 text-sm">{member.role || 'Rol no disponible'}</p>
         </div>
       ))}
     </div>
