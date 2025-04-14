@@ -1,8 +1,9 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { fetchAllVehicles } from "../../lib/fetchVehicles";
 import { VehicleCard } from "./VehiculeCard";
 import { SearchFilters } from "./SearchFilters";
 import { Pagination } from "./Pagination";
+import { Filters } from "./Filters";
 import type { Datum } from "../../types/vehicule";
 import { SpinnerCircular } from "spinners-react/lib/esm/SpinnerCircular";
 
@@ -31,49 +32,15 @@ export function VehicleCatalog() {
     fetchData();
   }, []);
 
-  // Extract brands from vehicles
-  /*   const brands = useMemo(() => {
-    const brandSet = new Set<string>(vehicles.map((v: any) => v.brand));
-    return [...brandSet].sort((a, b) => a.localeCompare(b));
-  }, [vehicles]); */
-
-  const brands = useMemo(() => {
-    const brandSet = new Set<string>(
-      vehicles
-        .filter((v) => v.brand && typeof v.brand === "string")
-        .map((v) => v.brand as string)
-    );
-    return [...brandSet].sort((a, b) => a.localeCompare(b));
-  }, [vehicles]);
-
-  // Filtered and sorted vehicles
-  const filteredVehicles = useMemo(() => {
-    let filtered = [...vehicles];
-
-    // Apply search filter
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(
-        (v) =>
-          v.name.toLowerCase().includes(query) ||
-          v.brand.toLowerCase().includes(query)
-      );
-    }
-
-    // Apply brand filter
-    if (selectedBrand) {
-      filtered = filtered.filter((v) => v.brand === selectedBrand);
-    }
-
-    // Apply sort with proper price handling
-    filtered.sort((a, b) => {
-      const priceA = a.price ? parseFloat(a.price.replace(/[,.]/g, "")) : 0;
-      const priceB = b.price ? parseFloat(b.price.replace(/[,.]/g, "")) : 0;
-      return sortOrder === "asc" ? priceA - priceB : priceB - priceA;
-    });
-
-    return filtered;
-  }, [vehicles, searchQuery, selectedBrand, sortOrder]);
+  const { brands, filteredVehicles } = Filters({
+    vehicles,
+    searchQuery,
+    selectedBrand,
+    sortOrder,
+    onSearchChange: setSearchQuery,
+    onBrandChange: setSelectedBrand,
+    onSortChange: setSortOrder,
+  });
 
   // Pagination logic
   const totalPages = Math.ceil(filteredVehicles.length / ITEMS_PER_PAGE);
@@ -87,6 +54,7 @@ export function VehicleCatalog() {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   return (
     <div>
       <SearchFilters
@@ -112,9 +80,9 @@ export function VehicleCatalog() {
       ) : (
         <>
           <div className="grid grid-cols-1 sm:grid-col-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {paginatedVehicles.map((vehicle) => {
-              return <VehicleCard key={vehicle.id} vehicle={vehicle} />;
-            })}
+            {paginatedVehicles.map((vehicle) => (
+              <VehicleCard key={vehicle.id} vehicle={vehicle} />
+            ))}
           </div>
 
           {filteredVehicles.length > ITEMS_PER_PAGE && (

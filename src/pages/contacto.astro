@@ -5,178 +5,191 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Contacto - Estamos aquí para ayudarte con todas tus necesidades de vehículos 4x4" description="Estamos aquí para ayudarte con todas tus necesidades de vehículos 4x4">
   <main class="bg-black py-36 px-4">
     <div class="container mx-auto">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-white mb-2">Contáctanos</h1>
-      <p class="text-xl text-white">Estamos aquí para ayudarte con todas tus necesidades de vehículos 4x4</p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-      <!-- Formulario de contacto -->
-      <div class="bg-white p-8 rounded-2xl shadow-lg">
-        <h2 class="text-2xl font-semibold mb-6">Envíanos un mensaje</h2>
-        <form id="contact-form">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <div>
-              <label for="name" class="block text-gray-700 font-medium mb-2">Nombre</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              />
-            </div>
-            <div>
-              <label for="phone" class="block text-gray-700 font-medium mb-2">Teléfono</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              />
-            </div>
-          </div>
-          <div class="mb-4">
-            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            />
-          </div>
-          <div class="mb-4">
-            <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              required
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            ></textarea>
-          </div>
-          <div id="form-status" class="mb-4 hidden">
-            <p class="text-center font-medium"></p>
-          </div>
-          <button
-            type="submit"
-            class="w-full bg-yellow-500 text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-colors"
-          >
-            Enviar Mensaje
-          </button>
-        </form>
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-white mb-2">Contáctanos</h1>
+        <p class="text-xl text-white">Estamos aquí para ayudarte con todas tus necesidades de vehículos 4x4</p>
       </div>
 
-      <!-- Información de la empresa -->
-      <div class="space-y-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <!-- Formulario de contacto -->
         <div class="bg-white p-8 rounded-2xl shadow-lg">
-          <h2 class="text-2xl font-semibold mb-6">Información de Contacto</h2>
-          <div class="space-y-4">
-            <div class="flex flex-col space-y-4">
-              <!-- Dirección 1 -->
-              <div class="flex items-start space-x-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <div>
-                  <h3 class="font-semibold text-lg">Sede Santiago (Casa Matriz)</h3>
-                  <p class="text-gray-600">Av. Kennedy 8076, Santiago.</p>
-                  <p class="text-gray-600 py-1">+56 9 4040 3988</p>
-   
-                </div>
-              </div>
-            
-              <!-- Dirección 2 -->
-              <div class="flex items-start space-x-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <div>
-                  <h3 class="font-semibold text-lg">Sede Santiago</h3>
-                  <p class="text-gray-600">Av. Vitacura 9667, Santiago.</p>
-                  <p class="text-gray-600 ">+56 9 3380 6123</p>
-                </div>
-              </div>
-            
-              <!-- Dirección 3 -->
-              <div class="flex items-start space-x-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <div>
-                  <h3 class="font-semibold text-lg">Sede Concepción</h3>
-                  <p class="text-gray-600">Av. Pedro de Valdivia 491.</p>
-                  <p class="text-gray-600">Concepción.</p>
-                  <a class="text-gray-600" href="tel:+56923806177">+56 9 2380 6177</a>
-                </div>
-              </div>
-            </div>
-            
-          
-            <div class="flex items-start space-x-4">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+          <h2 class="text-2xl font-semibold mb-6">Envíanos un mensaje</h2>
+          <form id="contact-form" aria-label="Formulario de contacto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
-                <h3 class="font-semibold text-lg">Email</h3>
-                <p class="text-gray-600">Automotriz@dobletraccion.cl</p>
+                <label for="name" class="block text-gray-700 font-medium mb-2">Nombre completo *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  aria-required="true"
+                  aria-label="Ingresa tu nombre completo"
+                  placeholder="Ej: Juan Pérez"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                />
               </div>
-            </div>
-            <div class="flex items-start space-x-4">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
               <div>
-                <h3 class="font-semibold text-lg">Horario de Atención</h3>
-                <p class="text-gray-600">Lunes a Viernes: 10:00hrs a 14:00hrs</p>
-                <p class="text-gray-600">Sábados: 10:00hrs - 14:00hrs</p>
+                <label for="phone" class="block text-gray-700 font-medium mb-2">Teléfono de contacto *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  aria-required="true"
+                  aria-label="Ingresa tu número de teléfono"
+                  placeholder="Ej: +56 9 1234 5678"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                />
               </div>
             </div>
-          </div>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-medium mb-2">Correo electrónico *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-required="true"
+                aria-label="Ingresa tu correo electrónico"
+                placeholder="Ej: juan.perez@email.com"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                aria-required="true"
+                aria-label="Escribe tu mensaje"
+                placeholder="Escribe aquí tu mensaje..."
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              ></textarea>
+            </div>
+            <div id="form-status" class="mb-4 hidden" aria-live="polite">
+              <p class="text-center font-medium"></p>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-yellow-500 text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-colors"
+              aria-label="Enviar formulario de contacto"
+            >
+              Enviar Mensaje
+            </button>
+          </form>
         </div>
 
-        <!-- Mapas -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="bg-white p-4 rounded-2xl shadow-lg">
-            <h3 class="font-semibold mb-2">Av.Kennedy 8076, Vitacura, Santiago.</h3>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3812.713719930959!2d-70.55467762369511!3d-33.390778294459786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ceca406d5bb9%3A0x275200b03c5ac785!2sAv.%20Pdte.%20Kennedy%208076%2C%207650487%20Vitacura%2C%20Regi%C3%B3n%20Metropolitana!5e1!3m2!1ses-419!2scl!4v1737482184906!5m2!1ses-419!2scl"
-              class="w-full h-48 rounded-lg"
-              style="border:0;"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div class="bg-white p-4 rounded-2xl shadow-lg">
-            <h3 class="font-semibold mb-2">Av.Vitacura 9667 Santiago de Chile</h3>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4201.701154830295!2d-70.54343838696538!3d-33.38141247018673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c94c12ef834d%3A0x5d6c7c7215f72df!2sAv%20Vitacura%209667%2C%207650050%20Vitacura%2C%20Regi%C3%B3n%20Metropolitana!5e1!3m2!1ses-419!2scl!4v1738022877493!5m2!1ses-419!2scl"
-              class="w-full h-48 rounded-lg"
-              style="border:0;"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+        <!-- Información de la empresa -->
+        <div class="space-y-8">
+          <div class="bg-white p-8 rounded-2xl shadow-lg">
+            <h2 class="text-2xl font-semibold mb-6">Información de Contacto</h2>
+            <div class="space-y-4">
+              <div class="flex flex-col space-y-4">
+                <!-- Dirección 1 -->
+                <div class="flex items-start space-x-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-lg">Sede Santiago (Casa Matriz)</h3>
+                    <p class="text-gray-600">Av. Kennedy 8076, Santiago.</p>
+                    <p class="text-gray-600 py-1">+56 9 4040 3988</p>
+     
+                  </div>
+                </div>
+              
+                <!-- Dirección 2 -->
+                <div class="flex items-start space-x-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-lg">Sede Santiago</h3>
+                    <p class="text-gray-600">Av. Vitacura 9667, Santiago.</p>
+                    <p class="text-gray-600 ">+56 9 3380 6123</p>
+                  </div>
+                </div>
+              
+                <!-- Dirección 3 -->
+                <div class="flex items-start space-x-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-lg">Sede Concepción</h3>
+                    <p class="text-gray-600">Av. Pedro de Valdivia 491.</p>
+                    <p class="text-gray-600">Concepción.</p>
+                    <a class="text-gray-600" href="tel:+56923806177">+56 9 2380 6177</a>
+                  </div>
+                </div>
+              </div>
+              
+            
+              <div class="flex items-start space-x-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-lg">Email</h3>
+                  <p class="text-gray-600">Automotriz@dobletraccion.cl</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-lg">Horario de Atención</h3>
+                  <p class="text-gray-600">Lunes a Viernes: 10:00hrs a 14:00hrs</p>
+                  <p class="text-gray-600">Sábados: 10:00hrs - 14:00hrs</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="bg-white p-4 rounded-2xl shadow-lg">
-            <h3 class="font-semibold mb-2">Pedro de Valdivia 491 Concepción.</h3>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3812.864986322411!2d-70.54462492369527!3d-33.38732949428355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ceb377702077%3A0x9e5413832a701286!2sAv.%20Pdte.%20Kennedy%209667%2C%20Vitacura%2C%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e1!3m2!1ses-419!2scl!4v1737482354778!5m2!1ses-419!2scl"
-              class="w-full h-48 rounded-lg"
-              style="border:0;"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+          <!-- Mapas -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded-2xl shadow-lg">
+              <h3 class="font-semibold mb-2">Av.Kennedy 8076, Vitacura, Santiago.</h3>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3812.713719930959!2d-70.55467762369511!3d-33.390778294459786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ceca406d5bb9%3A0x275200b03c5ac785!2sAv.%20Pdte.%20Kennedy%208076%2C%207650487%20Vitacura%2C%20Regi%C3%B3n%20Metropolitana!5e1!3m2!1ses-419!2scl!4v1737482184906!5m2!1ses-419!2scl"
+                class="w-full h-48 rounded-lg"
+                style="border:0;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div class="bg-white p-4 rounded-2xl shadow-lg">
+              <h3 class="font-semibold mb-2">Av.Vitacura 9667 Santiago de Chile</h3>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4201.701154830295!2d-70.54343838696538!3d-33.38141247018673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c94c12ef834d%3A0x5d6c7c7215f72df!2sAv%20Vitacura%209667%2C%207650050%20Vitacura%2C%20Regi%C3%B3n%20Metropolitana!5e1!3m2!1ses-419!2scl!4v1738022877493!5m2!1ses-419!2scl"
+                class="w-full h-48 rounded-lg"
+                style="border:0;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-lg">
+              <h3 class="font-semibold mb-2">Pedro de Valdivia 491 Concepción.</h3>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3812.864986322411!2d-70.54462492369527!3d-33.38732949428355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ceb377702077%3A0x9e5413832a701286!2sAv.%20Pdte.%20Kennedy%209667%2C%20Vitacura%2C%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e1!3m2!1ses-419!2scl!4v1737482354778!5m2!1ses-419!2scl"
+                class="w-full h-48 rounded-lg"
+                style="border:0;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </main>
 </Layout>
 
