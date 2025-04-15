@@ -10,8 +10,10 @@ interface Props {
 }
 const { slug } = Astro.params;
 const { title, description, image } = Astro.props;
-const url = `https://www.dobletraccionautomotriz.cl/${slug}`;
+const url = slug ? `https://www.dobletraccionautomotriz.cl/${slug}` : 'https://www.dobletraccionautomotriz.cl/';
 const ogImage = image || '/images/banners/nosotros-banner.webp';
+
+console.log('URL:', url);
 ---
 
 <!doctype html>
