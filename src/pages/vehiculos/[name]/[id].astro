@@ -24,11 +24,13 @@ const vehicle = response.data;
 
 // Datos para SEO
 const seoData = {
-  title: `${vehicle.name} - Detalles`,
+  title: `${vehicle.name} - ${vehicle.miles} KM - Transmisión: ${vehicle.transmission} - Motor ${vehicle.fuelType}.`,
   description: `Compra el ${vehicle.name}, un vehículo con ${vehicle.miles} km, transmisión ${vehicle.transmission} y motor ${vehicle.fuelType}.`,
-  image: vehicle.imageUrl,
+  image: vehicle.imageUrl?.startsWith('http')
+    ? vehicle.imageUrl
+    : `https://www.dobletraccionautomotriz.cl${vehicle.imageUrl}`,
 };
-
+console.log("SEO:",seoData)
 // Formateamos el precio
 const formattedPrice = formatPrice(vehicle.price);
 ---
