@@ -1,28 +1,34 @@
 ---
-import {CarWiew} from "../../../components/car-view/CarWiew";
-import { getCarsByIds } from "../../../lib/fetchVehicles";
-import Layout from "../../../layouts/Layout.astro";
-import { formatPrice } from "../../../helpers/formatHelpers";
+import { CarWiew } from "../../components/car-view/CarWiew";
+import { getCarsByIds, fetchAllVehicles } from "../../lib/fetchVehicles";
+import Layout from "../../layouts/Layout.astro";
+import { formatPrice } from "../../helpers/formatHelpers";
 import { FaRoad } from "react-icons/fa";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { GiGearStickPattern } from "react-icons/gi";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { formatNameForURL } from "../../helpers/stringHelpers";
 
-// Capturamos el `id` desde los parámetros de la URL
-const { id } = Astro.params || {};
+const { name } = Astro.params || {};
 
-// Llamamos a `getCarsByIds` para obtener el vehículo correspondiente
-const response = await getCarsByIds({ id: id || "" });
+// Buscar el vehículo por el slug (name)
+const allVehicles = await fetchAllVehicles();
+const foundVehicle = allVehicles.find(
+  (v) => formatNameForURL(v.name) === name
+);
 
-// Si no se encontró el vehículo, lanzamos un error
-if (!response || !response.status) {
-  throw new Error(`No se encontró el vehículo con ID: ${id}`);
+if (!foundVehicle) {
+  throw new Error(`No se encontró el vehículo con nombre: ${name}`);
 }
 
-// Obtenemos los datos del vehículo
+const response = await getCarsByIds({ id: String(foundVehicle.id) });
+
+if (!response || !response.status) {
+  throw new Error(`No se encontró el vehículo con ID: ${foundVehicle.id}`);
+}
+
 const vehicle = response.data;
 
-// Datos para SEO
 const seoData = {
   title: `${vehicle.name} - ${vehicle.miles} KM - Transmisión: ${vehicle.transmission} - Motor ${vehicle.fuelType}.`,
   description: `Compra el ${vehicle.name}, un vehículo con ${vehicle.miles} km, transmisión ${vehicle.transmission} y motor ${vehicle.fuelType}.`,
@@ -30,7 +36,7 @@ const seoData = {
     ? vehicle.imageUrl
     : `https://www.dobletraccionautomotriz.cl${vehicle.imageUrl}`,
 };
-// Formateamos el precio
+
 const formattedPrice = formatPrice(vehicle.price);
 ---
 

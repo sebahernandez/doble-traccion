@@ -31,7 +31,7 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
           </div>
         )}
       </div>
-      <a href={`/vehiculos/${formatNameForURL(vehicle.name)}/${vehicle.id}`}>
+      <a href={`/vehiculos/${formatNameForURL(vehicle.name)}`}>
         <img
           src={vehicle.imageUrl}
           alt={vehicle.name}
@@ -42,11 +42,7 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
         {/* <span className="text-sm text-gray-400">{vehicle.year}</span> */}
         <h3 className="font-bold text-[16px] mb-2 text-white">
           <div className="h-12 pt-2">
-            <a
-              href={`/vehiculos/${formatNameForURL(vehicle.name)}/${
-                vehicle.id
-              }`}
-            >
+            <a href={`/vehiculos/${formatNameForURL(vehicle.name)}`}>
               {vehicle.name}
             </a>
           </div>
