@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contacto - Estamos aquí para ayudarte con todas tus necesidades de vehículos 4x4" description="Estamos aquí para ayudarte con todas tus necesidades de vehículos 4x4">
+  <main class="bg-black py-36 px-4">
+    <div class="container mx-auto">
+      <div class="text-center py-10">
+        <h1 class="text-4xl font-bold text-white mb-2">¿Quieres vender tu 4x4?</h1>
+        <p class="text-xl text-white">
+            Confía en nuestro equipo especializado para vender tu 4x4 de forma rapida, segura y sin complicaciones.
+        </p>
+        <p class="text-xl text-white">
+            Nos encargamos de todo el proceso, mientras tú te preparas para tu próxima aventura.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+        <div class="space-y-8">
+            <div class="space-y-4">
+              <img 
+                src="/images/promo/dobletraccion_01.webp" 
+                alt="Información de contacto de Doble Tracción Automotriz" 
+                class="w-full rounded-lg"
+                id="contact-info-image"
+              />
+            </div>
+        </div>
+        <!-- Formulario de contacto -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+          <h2 class="text-2xl font-semibold mb-6">Envíanos un mensaje</h2>
+          <form id="contact-form" aria-label="Formulario de contacto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label for="name" class="block text-gray-700 font-medium mb-2">Nombre completo *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  aria-required="true"
+                  aria-label="Ingresa tu nombre completo"
+                  placeholder="Ej: Juan Pérez"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-gray-700 font-medium mb-2">Teléfono de contacto *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  aria-required="true"
+                  aria-label="Ingresa tu número de teléfono"
+                  placeholder="Ej: +56 9 1234 5678"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label for="plate" class="block text-gray-700 font-medium mb-2">Patente del vehículo *</label>
+                <input
+                  type="text"
+                  id="plate"
+                  name="plate"
+                  required
+                  aria-required="true"
+                  aria-label="Ingresa la patente de tu vehículo"
+                  placeholder="Ej: BBCC11 o ABCD12"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                />
+              </div>
+              <div>
+                <label for="saleType" class="block text-gray-700 font-medium mb-2">Tipo de venta *</label>
+                <select
+                  id="saleType"
+                  name="saleType"
+                  required
+                  aria-required="true"
+                  aria-label="Selecciona el tipo de venta"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                >
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="consignacion">Consignación</option>
+                  <option value="venta-directa">Venta directa</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-medium mb-2">Correo electrónico *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-required="true"
+                aria-label="Ingresa tu correo electrónico"
+                placeholder="Ej: juan.perez@email.com"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                aria-required="true"
+                aria-label="Escribe tu mensaje"
+                placeholder="Escribe aquí tu mensaje..."
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              ></textarea>
+            </div>
+            <div id="form-status" class="mb-4 hidden" aria-live="polite">
+              <p class="text-center font-medium"></p>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-yellow-500 text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-colors"
+              aria-label="Enviar formulario de contacto"
+            >
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const formStatus = document.getElementById('form-status');
+  const statusText = formStatus?.querySelector('p');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    if (!form || !formStatus || !statusText) return;
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    // Disable form and show loading state
+    form.querySelectorAll('input, textarea, button').forEach((el) => {
+      (el as HTMLElement).setAttribute('disabled', 'true');
+    });
+    formStatus.classList.remove('hidden');
+    statusText.textContent = 'Enviando mensaje...';
+    formStatus.className = 'mb-4 text-gray-600';
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.error) {
+        throw new Error(result.error);
+      }
+
+      // Show success message
+      form.reset();
+      statusText.textContent = '¡Mensaje enviado con éxito!';
+      formStatus.className = 'mb-4 text-green-600';
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        formStatus.classList.add('hidden');
+      }, 3000);
+    } catch (error) {
+      // Show error message
+      statusText.textContent = 'Error al enviar el mensaje. Por favor, intente nuevamente.';
+      formStatus.className = 'mb-4 text-red-600';
+    } finally {
+      // Re-enable form
+      form.querySelectorAll('input, textarea, button').forEach((el) => {
+        (el as HTMLElement).removeAttribute('disabled');
+      });
+    }
+  });
+</script>
