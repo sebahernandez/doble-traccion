@@ -34,7 +34,7 @@ const seoData = {
   description: `Compra el ${vehicle.name}, un vehículo con ${vehicle.miles} km, transmisión ${vehicle.transmission} y motor ${vehicle.fuelType}.`,
   image: vehicle.imageUrl?.startsWith('http')
     ? vehicle.imageUrl
-    : `https://www.dobletraccionautomotriz.cl${vehicle.imageUrl}`,
+    : `https://dobletraccionautomotriz.cl/images/logo/logo.webp`,
 };
 
 const formattedPrice = formatPrice(vehicle.price);

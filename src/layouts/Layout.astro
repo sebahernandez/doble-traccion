@@ -8,12 +8,14 @@ interface Props {
     description: string;
     image?: string;
 }
+
 const { slug } = Astro.params;
 const { title, description, image } = Astro.props;
 const url = slug ? `https://www.dobletraccionautomotriz.cl/${slug}` : 'https://www.dobletraccionautomotriz.cl/';
-const ogImage = image || '/images/banners/nosotros-banner.webp';
+const ogImage = image;
 
 console.log('URL:', url);
+console.log('Image:', ogImage);
 ---
 
 <!doctype html>
@@ -23,7 +25,7 @@ console.log('URL:', url);
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:secure_url" content={ogImage} />
         <meta property="og:type" content="website" /> 
 
         <meta name="twitter:card" content="summary_large_image" />
