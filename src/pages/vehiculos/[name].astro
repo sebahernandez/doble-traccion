@@ -1,7 +1,7 @@
 ---
 import { CarWiew } from "../../components/car-view/CarWiew";
 import { getCarsByIds, fetchAllVehicles } from "../../lib/fetchVehicles";
-import Layout from "../../layouts/Layout.astro";
+import LayoutViewCar from "../../layouts/LayoutViewCar.astro";
 import { formatPrice } from "../../helpers/formatHelpers";
 import { FaRoad } from "react-icons/fa";
 import { BsFillFuelPumpFill } from "react-icons/bs";
@@ -38,12 +38,13 @@ const seoData = {
   image: vehicle.imageUrl?.startsWith('http')
     ? vehicle.imageUrl
     : `https://dobletraccionautomotriz.cl/images/logo/logo.webp`,
+  url: `https://dobletraccionautomotriz.cl/vehiculos/${formatNameForURL(vehicle.name)}`,
 };
 
 const formattedPrice = formatPrice(vehicle.price);
 ---
 
-<Layout {...seoData}>
+<LayoutViewCar {...seoData}>
   <section class="bg-stone-950 text-gray-100 py-36">
     <div class="container mx-auto p-6">
       <!-- Título y Precio -->
@@ -126,4 +127,4 @@ const formattedPrice = formatPrice(vehicle.price);
           </div>
     </div>
   </section>
-</Layout>
+</LayoutViewCar>
