@@ -11,44 +11,71 @@ interface Props {
 
 const { slug } = Astro.params;
 const { title, description, image } = Astro.props;
-const url = slug ? `https://www.dobletraccionautomotriz.cl/${slug}` : 'https://www.dobletraccionautomotriz.cl/';
-const ogImage = image;
 
-console.log('URL:', url);
-console.log('Image:', ogImage);
+// URL de la página
+const url = slug
+  ? `https://www.dobletraccionautomotriz.cl/${slug}`
+  : 'https://www.dobletraccionautomotriz.cl/';
+
+// Determinar la imagen OG: usar la prop 'image' si está, si no, fetch dinámico
+let ogImage: string;
+if (image) {
+  ogImage = image;
+} else if (slug) {
+  // Fetch al endpoint que devuelve JSON { url: '/205/archivo.jpeg' }
+  try {
+    const resp = await fetch(`https://www.dobletraccionautomotriz.cl/api/imagen?name=${encodeURIComponent(slug)}`);
+    if (resp.ok) {
+      const data = await resp.json();
+      // Construir URL pública HTTPS de la CDN
+      ogImage = `https://cdn.dobletraccionautomotriz.cl${data.url}`;
+    } else {
+      ogImage = 'https://dobletraccionautomotriz.cl/images/logo/logo.webp';
+    }
+  } catch (e) {
+    console.warn('Error fetching OG image:', e);
+    ogImage = 'https://dobletraccionautomotriz.cl/images/logo/logo.webp';
+  }
+} else {
+  // Imagen por defecto si no hay slug ni prop
+  ogImage = 'https://dobletraccionautomotriz.cl/images/logo/logo.webp';
+}
 ---
-
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content={description} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:type" content="website" /> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={ogImage} />
+    <!-- Open Graph básicos -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={url} />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
 
-        <meta property="og:image:type"   content="image/jpeg" />
-        <meta property="og:image:width"  content="1200" />
-        <meta property="og:image:height" content="630" />
-        
-        <link rel="canonical" href={url} />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>{title}</title>
-    
-    </head>
-    <body>
-        
-        <Header/>
-        <Whatsapp />
-        <slot />
-        <Footer />
-    </body>
+    <!-- Imagen dinámica generada en SSR -->
+    <meta property="og:image"         content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type"    content="image/jpeg" />
+    <meta property="og:image:width"   content="1200" />
+    <meta property="og:image:height"  content="630" />
+    <meta property="og:image:alt"     content={title} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={ogImage} />
+
+    <link rel="canonical" href={url} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <Whatsapp />
+    <slot />
+    <Footer />
+  </body>
 </html>
-
