@@ -17,29 +17,14 @@ const url = slug
   ? `https://www.dobletraccionautomotriz.cl/${slug}`
   : 'https://www.dobletraccionautomotriz.cl/';
 
-// Determinar la imagen OG: usar la prop 'image' si está, si no, fetch dinámico
-let ogImage: string;
-if (image) {
-  ogImage = image;
-} else if (slug) {
-  // Fetch al endpoint que devuelve JSON { url: '/205/archivo.jpeg' }
-  try {
-    const resp = await fetch(`https://www.dobletraccionautomotriz.cl/api/imagen?name=${encodeURIComponent(slug)}`);
-    if (resp.ok) {
-      const data = await resp.json();
-      // Construir URL pública HTTPS de la CDN
-      ogImage = `https://cdn.dobletraccionautomotriz.cl${data.url}`;
-    } else {
-      ogImage = 'https://dobletraccionautomotriz.cl/images/logo/logo.webp';
-    }
-  } catch (e) {
-    console.warn('Error fetching OG image:', e);
-    ogImage = 'https://dobletraccionautomotriz.cl/images/logo/logo.webp';
-  }
-} else {
-  // Imagen por defecto si no hay slug ni prop
-  ogImage = 'https://dobletraccionautomotriz.cl/images/logo/logo.webp';
-}
+// URL de la imagen
+const ogImage = image
+  ? image.startsWith('http')
+    ? image
+    : `https://dobletraccionautomotriz.cl/images/logo/logo.webp`
+  : 'https://dobletraccionautomotriz.cl/images/logo/logo.webp';
+
+  
 ---
 <!doctype html>
 <html lang="es">
