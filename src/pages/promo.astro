@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const keyHcaptcha = import.meta.env.HCAPTCHA_SITE_KEY;
 ---
 
 <Layout title="Contacto - Estamos aquí para ayudarte con todas tus necesidades de vehículos 4x4" description="Estamos aquí para ayudarte con todas tus necesidades de vehículos 4x4">
@@ -118,6 +120,7 @@ import Layout from '../layouts/Layout.astro';
             <div id="form-status" class="mb-4 hidden" aria-live="polite">
               <p class="text-center font-medium"></p>
             </div>
+            <div class="h-captcha my-3" data-sitekey={keyHcaptcha}></div>
             <button
               type="submit"
               class="w-full bg-yellow-500 text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-colors"
