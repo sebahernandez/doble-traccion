@@ -88,6 +88,7 @@ export const fetchAllVehicles = async (): Promise<Datum[]> => {
   }
 
   const { data } = (await res.json()) as APIVehicles;
+
   return data; // Devuelve directamente los vehículos como Datum[]
 };
 

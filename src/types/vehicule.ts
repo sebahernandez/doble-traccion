@@ -10,7 +10,7 @@ export type Datum = {
   id: number;
   name: string;
   price: string;
-  location: Location;
+  location: string;
   miles: number;
   fuelType: FuelType;
   transmission: Transmission;
@@ -29,10 +29,6 @@ export enum FuelType {
 export type ImageGallery = {
   imageUrl: string;
 };
-
-export enum Location {
-  LasCondes = "Las Condes",
-}
 
 export enum Transmission {
   Automático = "Automático",
