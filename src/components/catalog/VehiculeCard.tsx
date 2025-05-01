@@ -19,7 +19,7 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
       <div className="absolute top-2 right-3">
         {vehicle.available ? (
           <div className="flex items-center justify-center gap-2">
-            <div className="bg-green-400 text-black px-3 py-1 rounded-full text-[10px] font-bold uppercase">
+            <div className="bg-green-400 text-black px-3 py-1 rounded-full text-[12px] font-bold uppercase">
               Disponible
             </div>
           </div>
@@ -34,7 +34,7 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
       <div>
         <div className="absolute bottom-[175px] left-3">
           {vehicle.location ? (
-            <div className="bg-yellow-400/90 text-black px-4 py-2 rounded-full text-[12px] font-bold uppercase">
+            <div className="bg-yellow-300/90 text-black px-2 py-1 rounded-full text-[9px] font-bold uppercase">
               Sucursal - {vehicle.location}
             </div>
           ) : (
