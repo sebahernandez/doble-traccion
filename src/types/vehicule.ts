@@ -19,6 +19,13 @@ export type Datum = {
   description: string;
   brand: string;
   imageGallery: ImageGallery[];
+  vendedor: {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+    sucursal: string;
+  };
 };
 
 export enum FuelType {

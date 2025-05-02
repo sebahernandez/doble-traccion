@@ -35,7 +35,7 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
         <div className="absolute bottom-[175px] left-3">
           {vehicle.location ? (
             <div className="bg-yellow-300/90 text-black px-2 py-1 rounded-full text-[9px] font-bold uppercase">
-              Sucursal - {vehicle.location}
+              {vehicle.vendedor.sucursal}
             </div>
           ) : (
             <div className="bg-gray-800/80 text-white px-2 py-1 rounded-full text-[9px] font-bold uppercase">
