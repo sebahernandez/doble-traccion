@@ -3,20 +3,26 @@ import { useDebounce } from "use-debounce";
 
 interface SearchFiltersProps {
   readonly brands: string[];
+  readonly branches: string[];
   readonly selectedBrand: string;
+  readonly selectedBranch: string;
   readonly searchQuery: string;
   readonly sortOrder: "asc" | "desc" | "none";
   readonly onBrandChange: (brand: string) => void;
+  readonly onBranchChange: (branch: string) => void;
   readonly onSearchChange: (query: string) => void;
   readonly onSortChange: (order: "asc" | "desc" | "none") => void;
 }
 
 export function SearchFilters({
   brands,
+  branches,
   selectedBrand,
+  selectedBranch,
   searchQuery,
   sortOrder,
   onBrandChange,
+  onBranchChange,
   onSearchChange,
   onSortChange,
 }: SearchFiltersProps) {
@@ -40,8 +46,12 @@ export function SearchFilters({
     onSortChange(e.target.value as "asc" | "desc" | "none");
   };
 
+  const handleBranchChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    onBranchChange(e.target.value);
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
       <div className="flex flex-col gap-2">
         <label htmlFor="search" className="text-white font-medium">
           Busca tu próximo auto:
@@ -91,6 +101,26 @@ export function SearchFilters({
           <option value="none">Orden original</option>
           <option value="desc">Mayor precio</option>
           <option value="asc">Menor precio</option>
+        </select>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label htmlFor="branch" className="text-white font-medium">
+          Buscar por sucursal:
+        </label>
+        <select
+          id="branch"
+          value={selectedBranch}
+          onChange={handleBranchChange}
+          className="p-2 rounded-md border border-gray-700 bg-gray-800 text-white"
+          aria-label="Filtrar por sucursal"
+        >
+          <option value="">Todas las sucursales</option>
+          {[...new Set(branches)].sort().map((branch) => (
+            <option key={branch} value={branch}>
+              {branch}
+            </option>
+          ))}
         </select>
       </div>
     </div>

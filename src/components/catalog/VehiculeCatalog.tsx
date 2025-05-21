@@ -13,6 +13,7 @@ export function VehicleCatalog() {
   const [vehicles, setVehicles] = useState<Datum[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectBranch, setSelectBranch] = useState("");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc" | "none">("none");
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -38,10 +39,12 @@ export function VehicleCatalog() {
     vehicles,
     searchQuery,
     selectedBrand,
+    selectBranch,
     sortOrder,
     onSearchChange: setSearchQuery,
     onBrandChange: setSelectedBrand,
     onSortChange: setSortOrder,
+    onBranchChange: setSelectBranch,
   });
 
   // Pagination logic
@@ -61,9 +64,12 @@ export function VehicleCatalog() {
     <div>
       <SearchFilters
         brands={brands}
+        branches={vehicles.map((v) => v.vendedor?.sucursal).filter(Boolean)}
         selectedBrand={selectedBrand}
+        selectedBranch={selectBranch}
         searchQuery={searchQuery}
         sortOrder={sortOrder}
+        onBranchChange={setSelectBranch}
         onBrandChange={setSelectedBrand}
         onSearchChange={setSearchQuery}
         onSortChange={setSortOrder}

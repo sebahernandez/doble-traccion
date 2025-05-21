@@ -5,9 +5,11 @@ interface FiltersProps {
   vehicles: Datum[];
   searchQuery: string;
   selectedBrand: string;
+  selectBranch: string;
   sortOrder: "asc" | "desc" | "none";
   onSearchChange: (query: string) => void;
   onBrandChange: (brand: string) => void;
+  onBranchChange: (branch: string) => void;
   onSortChange: (order: "asc" | "desc" | "none") => void;
 }
 
@@ -15,10 +17,12 @@ export function Filters({
   vehicles,
   searchQuery,
   selectedBrand,
+  selectBranch,
   sortOrder,
   onSearchChange,
   onBrandChange,
   onSortChange,
+  onBranchChange,
 }: FiltersProps) {
   const brands = useMemo(() => {
     const brandSet = new Set<string>(
@@ -47,6 +51,10 @@ export function Filters({
     if (selectedBrand) {
       filtered = filtered.filter((v) => v?.brand === selectedBrand);
     }
+    // Apply branch filter
+    if (selectBranch) {
+      filtered = filtered.filter((v) => v?.vendedor?.sucursal === selectBranch);
+    }
 
     // Apply sort only if explicitly selected
     if (sortOrder !== "none") {
@@ -58,7 +66,7 @@ export function Filters({
     }
 
     return filtered;
-  }, [vehicles, searchQuery, selectedBrand, sortOrder]);
+  }, [vehicles, searchQuery, selectedBrand, sortOrder, selectBranch]);
 
   return { brands, filteredVehicles };
 }
