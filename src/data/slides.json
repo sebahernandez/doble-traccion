@@ -29,6 +29,24 @@
       "image": "/images/slider/slide-05.webp",
       "title": "Expertos en Vehículos 4x4",
       "description": "Encuentra tu próximo vehículo 4x4 con nosotros. Amplia selección de marcas y modelos con garantía."
+    },
+    {
+      "id": 6,
+      "image": "/images/slider/slide-06.webp",
+      "title": "Expertos en Vehículos 4x4",
+      "description": "Encuentra tu próximo vehículo 4x4 con nosotros. Amplia selección de marcas y modelos con garantía."
+    },
+    {
+      "id": 7,
+      "image": "/images/slider/slide-07.webp",
+      "title": "Expertos en Vehículos 4x4",
+      "description": "Encuentra tu próximo vehículo 4x4 con nosotros. Amplia selección de marcas y modelos con garantía."
+    },
+    {
+      "id": 8,
+      "image": "/images/slider/slide-08.webp",
+      "title": "Expertos en Vehículos 4x4",
+      "description": "Encuentra tu próximo vehículo 4x4 con nosotros. Amplia selección de marcas y modelos con garantía."
     }
   ]
 }
