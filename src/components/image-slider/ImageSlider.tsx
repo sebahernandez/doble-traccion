@@ -1,9 +1,20 @@
+// Component: ImageSlider
+// Description: A responsive image slider component using Swiper.js
+// Location:Slider on the homepage
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
+import {
+  Autoplay,
+  Navigation,
+  Pagination,
+  EffectFade,
+  Zoom,
+} from "swiper/modules";
 import slidesData from "../../data/slides.json";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/zoom";
 import "swiper/css/effect-fade";
 
 export const ImageSlider = () => {
@@ -11,12 +22,13 @@ export const ImageSlider = () => {
   return (
     <div className="w-full h-[700px] relative">
       <Swiper
-        modules={[Autoplay, Navigation, Pagination, EffectFade]}
+        modules={[Autoplay, Navigation, Pagination, EffectFade, Zoom]}
         effect="fade"
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
         }}
+        zoom={true}
         loop
         className="w-full h-full"
       >
